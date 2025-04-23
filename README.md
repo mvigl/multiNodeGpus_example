@@ -12,7 +12,7 @@ pip install -e .
 ```
 
 ## Usage
-from the `MPCDF` cluster, run:
+After chnaging the paths in the slurm config from `/raven/u/mvigl/multiNodeGpus_example` to `/raven/u/<user>/path/to/multiNodeGpus_example`, from the `MPCDF` cluster run:
 
 ```bash
 bash slurm/submit_jobs.sh
