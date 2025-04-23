@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myMLpackage"
+version = "0.1"
+description = "my ml project"
+authors = [{ name = "Matthias Vigl", email = "matthias.vigl@cern.ch" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = []  # Add your dependencies here
+
+[tool.setuptools]
+packages = { find = { where = ["src"] } }
