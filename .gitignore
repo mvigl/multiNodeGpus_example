@@ -182,7 +182,8 @@ src/atlascp/_version.py
 
 # project
 run/
-slurm/
+#slurm/
+comet_offline_log/
 
 # asetup artifacts
 .asetup.save

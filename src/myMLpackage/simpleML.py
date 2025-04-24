@@ -102,8 +102,7 @@ def train_loop(args):
     rank = int(os.environ["RANK"]) # in [0,WORLD_SIZE]
     world_size = int(os.environ["WORLD_SIZE"]) # N_nodes * N_GPUS_per_node
     local_rank = int(os.environ["LOCAL_RANK"]) # in [0,N_GPUS_per_node], used for setting the right GPU
-    
-    dist.init_process_group(backend='nccl', init_method="env://", rank=rank, world_size=world_size)
+    dist.init_process_group(backend=args.backend, init_method="env://", rank=rank, world_size=world_size)
     torch.cuda.set_device(local_rank)
     device = torch.device(f"cuda:{local_rank}")
 
@@ -120,10 +119,12 @@ def train_loop(args):
     best_model_params_path = f'{args.out}/{experiment_name}.pt'
 
     if rank == 0:
+        print(device)
         experiment = start(
             api_key=args.api_key,
             project_name=args.project_name,
             workspace=args.ws,
+            online=(args.backend=='nccl'),
         )
         experiment.set_name(experiment_name)
         experiment.log_parameter("exp_key", experiment.get_key())
@@ -213,4 +214,6 @@ def train_loop(args):
                     "val_loss": val_loss
                 }, step=epoch)
     # --- Cleanup ---
+    if experiment is not None:
+        experiment.end()
     dist.destroy_process_group()

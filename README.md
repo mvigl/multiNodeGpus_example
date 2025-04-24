@@ -15,8 +15,8 @@ pip install -e .
 ```
 
 ## Usage
-After chnaging the paths in the slurm config from `/raven/u/mvigl/multiNodeGpus_example` to `/raven/u/<user>/path/to/multiNodeGpus_example`, from the `MPCDF` cluster run:
+From the `MPCDF` cluster, `raven (NVIDIA)` or `viper (AMD)`, after chnaging the paths in the slurm config from `/raven(viper)/u/mvigl/multiNodeGpus_example` to `/raven(viper)/u/<user>/path/to/multiNodeGpus_example`, run:
 
 ```bash
-bash slurm/submit_jobs.sh
+bash slurm/submit_jobs(_raven).sh
 ```

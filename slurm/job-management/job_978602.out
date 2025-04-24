@@ -1,0 +1,28 @@
+                                  
+================================= 
+Global information about the job: 
+================================= 
+  
+Job owner: mvigl(54754)
+Job name:  test
+Node list: vipa[1112,1136]
+Job start: Thu Apr 24 16:59:46 CEST 2025
+Job end:   Thu Apr 24 17:01:46 CEST 2025
+Work dir:  /viper/u/mvigl/multiNodeGpus_example
+Command:   /viper/u/mvigl/multiNodeGpus_example/slurm/single_job_viper.sbatch
+  
+  
+  
+==========================================================================================
+Information on jobsteps (Note: MaxRSS/AveRSS is the maximum/average over all 
+tasks of the per-task memory high-water marks; cf. "man sacct"): 
+==========================================================================================
+  
+JobID            JobName NNodes NTasks  NCPUS       MaxRSS       AveRSS    Elapsed ExitCode
+------------- ---------- ------ ------ ------ ------------ ------------ ---------- --------
+978602              test      2           192                             00:02:00      0:0
+978602.0      job_viper.      2      2    192     5844.64M     5824.51M   00:01:52      0:0
+  
+Maximum memory per node: 6.128552 GB (defined as MaxRSS*Ntasks/NNodes)
+CPU utilization: 3.7 %
+  
