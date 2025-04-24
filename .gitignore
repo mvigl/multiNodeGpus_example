@@ -182,6 +182,7 @@ src/atlascp/_version.py
 
 # project
 run/
+slurm/
 
 # asetup artifacts
 .asetup.save
