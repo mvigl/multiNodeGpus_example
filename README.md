@@ -12,6 +12,7 @@ cd multiNodeGpus_example
 
 pip install -e .
 
+chmod 755 slurm/job.sh
 ```
 
 ## Usage
