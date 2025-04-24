@@ -117,7 +117,7 @@ def train_loop(args):
 
     persistent_workers = args.num_workers > 0
     experiment_name = f'lr{args.lr}_bs{args.bs}'
-    best_model_params_path = f'{args.out}/models/{experiment_name}.pt'
+    best_model_params_path = f'{args.out}/{experiment_name}.pt'
 
     if rank == 0:
         experiment = start(
