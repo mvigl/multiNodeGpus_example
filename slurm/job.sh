@@ -9,7 +9,7 @@ project_name="$6"
 api_key="$7"
 ws="$8"
 
-python -m torch.distributed.run --nproc_per_node="$gpus" \
+stdbuf -oL -eL python -m torch.distributed.run --nproc_per_node="$gpus" \
     --nnodes=$SLURM_NNODES \
     --node_rank=$SLURM_NODEID \
     --master_addr=$MASTER_ADDR \
@@ -21,4 +21,4 @@ python -m torch.distributed.run --nproc_per_node="$gpus" \
     --out "$out" \
     --project_name "$project_name" \
     --api_key "$api_key" \
-    --ws "$ws" \
+    --ws "$ws"

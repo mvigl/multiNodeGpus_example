@@ -79,13 +79,13 @@ def eval_step(model, loss_fn, train_loader, val_loader, device, min_len_train, m
         for i, (x, y) in enumerate(val_loader):
             if i >= min_len_val: break
             x, y = x.to(device).float(), y.to(device).float()
-            val_loss_total += loss_fn(model(x), y)
+            val_loss_total += loss_fn(model(x), y.view(-1, 1))
             val_batches += 1
 
         for i, (x, y) in enumerate(train_loader):
             if i >= min_len_train: break
             x, y = x.to(device).float(), y.to(device).float()
-            train_loss_total += loss_fn(model(x), y)
+            train_loss_total += loss_fn(model(x), y.view(-1, 1))
             train_batches += 1
 
     # Aggregate results across all GPUs
@@ -196,7 +196,7 @@ def train_loop(args):
             y = y.to(device).float()
             
             preds = model(x) 
-            loss = loss_fn(preds,y)
+            loss = loss_fn(preds,y.view(-1, 1))
             loss.backward() # here DDP makes all_reduce() sync kick in
             opt.step()
             opt.zero_grad()
