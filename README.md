@@ -8,7 +8,11 @@ Example for running multi-Gpus training across multiple nodes on the MPCDF clust
 ```bash
 git clone https://github.com/mvigl/multiNodeGpus_example.git
 
+cd multiNodeGpus_example
+
 pip install -e .
+
+chmod +x slurm/job.sh
 ```
 
 ## Usage
