@@ -146,8 +146,8 @@ def train_loop(args):
 
     # --- Dataloaders with Distributed Samplers ---
     # ---------------------------------------------
-    train_dataset = GaussianDataset(n_samples_per_class=10000, mean0=[-2, -2], mean1=[2, 2], cov=[[1, 0], [0, 1]])
-    val_dataset = GaussianDataset(n_samples_per_class=1000, mean0=[-2, -2], mean1=[2, 2], cov=[[1, 0], [0, 1]])
+    train_dataset = GaussianDataset(n_samples_per_class=1000000, mean0=[-2, -2], mean1=[2, 2], cov=[[1, 0], [0, 1]])
+    val_dataset = GaussianDataset(n_samples_per_class=10000, mean0=[-2, -2], mean1=[2, 2], cov=[[1, 0], [0, 1]])
 
     # -- this will create N_GPUS_per_node copies so unless you can fit N_GPUS_per_node * data_size on the node (500GB max on MPCDF) 
     # -- you should send different chunks (shards) of data to different nodes/gpus explicitly (see commented code below)
@@ -161,8 +161,8 @@ def train_loop(args):
     # --- Dataloaders with explicit sharding ---    
     # ---------------------------------------------
     # -- each rank will load a different chunk of data, so in real applications make sure this is shuffled before creating shards
-    #train_dataset = GaussianDataset(n_samples_per_class=10000 // world_size)
-    #val_dataset = GaussianDataset(n_samples_per_class=1000 // world_size)
+    #train_dataset = GaussianDataset(n_samples_per_class=1000000 // world_size)
+    #val_dataset = GaussianDataset(n_samples_per_class=10000 // world_size)
 
     #train_loader = DataLoader(train_dataset, batch_size=args.bs, shuffle=True, num_workers=args.num_workers, persistent_workers=persistent_workers)
     #val_loader = DataLoader(val_dataset, batch_size=args.bs, shuffle=False, num_workers=args.num_workers, persistent_workers=persistent_workers)
