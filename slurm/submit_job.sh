@@ -14,7 +14,7 @@ project_name="multiGPUexample"
 api_key="your comet_ml api key"
 ws="your comet_ml workspace"
 
-nohup sbatch --job-name="test" --time="${JOBTIME}" /raven/u/mvigl/multiNodeGpus_example/slurm/single_job.sbatch "$lr" "$bs" "$ep" "$bs" "$gpus" "$out" "$project_name" "$api_key" "$ws" >> "$LOG_FILE" 2>> "$ERR_FILE" &
+nohup sbatch --job-name="test" --time="${JOBTIME}" /raven/u/mvigl/multiNodeGpus_example/slurm/single_job.sbatch "$lr" "$bs" "$ep" "$gpus" "$out" "$project_name" "$api_key" "$ws" >> "$LOG_FILE" 2>> "$ERR_FILE" &
 disown -h
 
 # can add more submissions here

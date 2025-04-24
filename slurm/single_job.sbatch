@@ -44,4 +44,4 @@ project_name="$6"
 api_key="$7"
 ws="$8"
 # Start run
-srun /raven/u/mvigl/multiNodeGpus_example/slurm/job.sh "$lr" "$bs" "$ep" "$bs" "$gpus" "$out" "$project_name" "$api_key" "$ws"
+srun /raven/u/mvigl/multiNodeGpus_example/slurm/job.sh "$lr" "$bs" "$ep" "$gpus" "$out" "$project_name" "$api_key" "$ws"

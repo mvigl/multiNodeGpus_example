@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser(description='')
 parser.add_argument('--lr', type=float,  help='learning rate',default=0.0001)
 parser.add_argument('--bs', type=int,  help='batch size',default=128)
 parser.add_argument('--ep', type=int,  help='epochs',default=100)
+parser.add_argument('--num_workers', type=int,  help='num_workers',default=8)
 parser.add_argument('--out', help='directory where trained model is saved to',default='models')
 # --- comet_ml logging ---
 parser.add_argument('--project_name', help='your comet_ml project_name',default='multiGPUexample')
